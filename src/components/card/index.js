@@ -2,18 +2,27 @@ import React from "react";
 import "./style.css";
 //import type from "../public/img";
 
-const Card = ({ handleClick, id, type, flipped, height, width }) => {
+const Card = ({
+  handleClick,
+  id,
+  type,
+  flipped,
+  solved,
+  height,
+  width,
+  disabled,
+}) => {
   return (
     <div
       className={`flip-container ${flipped ? "flipped" : ""}`}
       style={{ width, height }}
-      onClick={() => handleClick(id)}
+      onClick={() => (disabled ? null : handleClick(id))}
     >
       <div className="flipper">
         <img
           style={{ height, width }}
           className={flipped ? "front" : "back"}
-          src={flipped ? `/img/${type}.png` : `/img/flags_back.png`}
+          src={flipped || solved ? `/img/${type}.png` : `/img/flags_back.png`}
         />
       </div>
     </div>

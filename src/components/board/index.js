@@ -2,7 +2,14 @@ import React from "react";
 import Card from "../card";
 import "./style.css";
 
-const Board = ({ dimension, cards, flipped, handleClick }) => {
+const Board = ({
+  disabled,
+  dimension,
+  cards,
+  flipped,
+  solved,
+  handleClick,
+}) => {
   return (
     <div className="board">
       {cards.map((card) => (
@@ -13,7 +20,9 @@ const Board = ({ dimension, cards, flipped, handleClick }) => {
           width={dimension / 4.5}
           height={dimension / 4.5}
           flipped={flipped.includes(card.id)}
-          handleClick={() => handleClick(card.id)}
+          solved={disabled || solved.includes(card.id)}
+          handleClick={handleClick}
+          disabled={disabled || solved.includes(card.id)}
         />
       ))}
     </div>

@@ -10,9 +10,9 @@ const randCards = (array) => {
 };
 const initialCards = () => {
   let id = 0;
-  const cards = ["arg", "us", "spain", "uk"].reduce((acc, type) => {
-    acc.push({ id: id++, type });
-    acc.push({ id: id++, type });
+  const cards = ["arg", "us", "spain", "uk", "it"].reduce((acc, country) => {
+    acc.push({ id: id++, country });
+    acc.push({ id: id++, country });
     return acc;
   }, []);
   return randCards(cards);

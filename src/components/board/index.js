@@ -16,7 +16,7 @@ const Board = ({
         <Card
           key={card.id}
           id={card.id}
-          type={card.type}
+          type={card.country}
           width={dimension / 4.5}
           height={dimension / 4.5}
           flipped={flipped.includes(card.id)}

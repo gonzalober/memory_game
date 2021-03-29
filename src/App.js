@@ -4,10 +4,10 @@ import initialCards from "./cards";
 
 function App() {
   const [cards, setCards] = useState([]);
-  const [flipped, setFlipped] = useState([]);
+  const [flipped, setFlipped] = useState([]); //tracks the cards' id
   const [dimension, setDimension] = useState(400);
-  const [solved, setSolved] = useState([]); //tracks the cards' id
   const [disabled, setDisabled] = useState(false);
+  const [solved, setSolved] = useState([]); //tracks the cards' id
 
   useEffect(() => {
     resizeBoard();
@@ -16,46 +16,8 @@ function App() {
 
   useEffect(() => {
     preloadImages();
-  }, cards);
+  }, [cards]);
 
-  useEffect(() => {
-    const resizeListener = window.addEventListener("resize", resizeBoard);
-    return () => window.removeEventListener("resize", resizeListener);
-  });
-
-  const handleClick = (id) => {
-    setDisabled(true);
-    if (flipped.length === 0) {
-      setFlipped([id]);
-      setDisabled(false);
-    } else {
-      if (sameCardClicked(id)) return setFlipped([flipped[0], id]);
-      if (isMatch(id)) {
-        setSolved([...solved, flipped[0], id]);
-        resetCards();
-      } else {
-        setTimeout(resetCards, 2000);
-      }
-    }
-  };
-
-  const preloadImages = () => {
-    cards.map((card) => {
-      const src = `/img/${card.type}.png`;
-      new Image().src = src;
-    });
-  };
-  const resetCards = () => {
-    setFlipped([]);
-    setDisabled(false);
-  };
-
-  const sameCardClicked = (id) => flipped.includes(id);
-  const isMatch = (id) => {
-    const clickedCard = cards.find((card) => card.id === id);
-    const flippedCard = cards.find((card) => flipped[0] === card.id);
-    return flippedCard.type === clickedCard.type;
-  };
   const resizeBoard = () => {
     setDimension(
       Math.min(
@@ -65,9 +27,62 @@ function App() {
     );
   };
 
+  useEffect(() => {
+    const resizeListener = () => {
+      window.addEventListener("resize", resizeBoard());
+    };
+    return () => {
+      window.removeEventListener("resize", resizeListener());
+    };
+  });
+  //const handleClick = (id) => setFlipped([...flipped, id]);
+  const handleClick = (id) => {
+    //setDisabled(true);
+    setFlipped([...flipped, id]);
+    if (flipped.length === 0) {
+      setFlipped([id]);
+      console.log("setFL:IPEDDDD", setFlipped([id]));
+      setDisabled(false);
+    } else {
+      console.log("ELSEEEES");
+      if (sameCardClicked(id)) return setFlipped([flipped[0], id]);
+      if (isMatch(id)) {
+        setSolved([...solved, flipped[0], id]);
+        resetCards();
+        //setDisabled(false);
+      } else {
+        setTimeout(resetCards, 1000);
+      }
+    }
+  };
+
+  const preloadImages = () => {
+    //pre-caching images
+    cards.map((card) => {
+      console.log(card.country);
+      const src = `/img/${card.country}.png`;
+      //console.log(src);
+      new Image().src = src;
+    });
+  };
+  const resetCards = () => {
+    setFlipped([]);
+    setDisabled(false);
+  };
+
+  const sameCardClicked = (id) => flipped.includes(id);
+
+  const isMatch = (id) => {
+    const clickedCard = cards.find((card) => card.id === id);
+    const flippedCard = cards.find((card) => flipped[0] === card.id);
+    console.log("FLIPPED CARD", flippedCard);
+    console.log("CLICKEDDS CARD", clickedCard);
+    return flippedCard.country === clickedCard.country;
+  };
+
   return (
     <div className="App">
-      <h2>Can you rememeber where the cards are?</h2>
+      <h2>Can you rememeber where the flags are?</h2>
       <Board
         dimension={dimension}
         cards={cards}

@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-//import type from "../public/img";
 
 const Card = ({
   handleClick,
@@ -20,7 +19,7 @@ const Card = ({
     >
       <div className="flipper">
         <img
-          style={{ height, width }}
+          style={{ width, height }}
           className={flipped ? "front" : "back"}
           src={flipped || solved ? `/img/${type}.png` : `/img/flags_back.png`}
         />

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Board from "./components/board";
+import Login from "./components/login";
+import Navbar from "./components/Navbar";
 import initialCards from "./cards";
+import "./App.css";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -16,7 +19,7 @@ function App() {
 
   useEffect(() => {
     preloadImages();
-  }, [cards]);
+  });
 
   const resizeBoard = () => {
     setDimension(
@@ -51,7 +54,7 @@ function App() {
         resetCards();
         //setDisabled(false);
       } else {
-        setTimeout(resetCards, 1000);
+        setTimeout(resetCards, 500);
       }
     }
   };
@@ -60,7 +63,7 @@ function App() {
     //pre-caching images
     cards.map((card) => {
       console.log(card.country);
-      const src = `/img/${card.country}.png`;
+      const src = `assets/img/${card.country}.png`;
       //console.log(src);
       new Image().src = src;
     });
@@ -82,7 +85,9 @@ function App() {
 
   return (
     <div className="App">
+      <Login />
       <h2>Can you rememeber where the flags are?</h2>
+      <Navbar />
       <Board
         dimension={dimension}
         cards={cards}

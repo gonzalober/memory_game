@@ -1,5 +1,9 @@
 import React from "react";
+import flag from "../../assets/img/memoryIcon.png";
 import "./style.css";
+
+const images = require.context("../../assets/img", true);
+const loadImage = (imageName) => images(`./${imageName}`).default;
 
 const Card = ({
   handleClick,
@@ -21,7 +25,8 @@ const Card = ({
         <img
           style={{ width, height }}
           className={flipped ? "front" : "back"}
-          src={flipped || solved ? `/img/${type}.png` : `/img/flags_back.png`}
+          src={flipped || solved ? loadImage(`${type}.png`) : flag}
+          alt=""
         />
       </div>
     </div>

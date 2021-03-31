@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Board from "./components/board";
 import Login from "./components/login";
+import Board from "./components/board";
 import Navbar from "./components/Navbar";
+import { UserContext } from "./userContext.js";
 import initialCards from "./cards";
 import "./App.css";
 
@@ -91,15 +92,17 @@ function App() {
       ) : (
         <>
           <h2>Can you rememeber where the flags are?</h2>
-          <Navbar name={name} />
-          <Board
-            dimension={dimension}
-            cards={cards}
-            flipped={flipped}
-            handleClick={handleClick}
-            disabled={disabled}
-            solved={solved}
-          />
+          <UserContext.Provider value={{ name, setName }}>
+            <Navbar handleName={name} />
+            <Board
+              dimension={dimension}
+              cards={cards}
+              flipped={flipped}
+              handleClick={handleClick}
+              disabled={disabled}
+              solved={solved}
+            />
+          </UserContext.Provider>
         </>
       )}
     </div>

@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../userContext";
 
-const Navbar = (props) => {
-  const [name, setName] = useState("");
-  const [score, setScore] = useState(0);
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    props.handleName(name);
-    console.log(name);
-  };
-
+const Navbar = () => {
+  const { name, setName } = useContext(UserContext);
   return (
     <div className="navbar">
       <div className="game-title">Memory Game</div>
-      <div className="name">{handleChange}</div>
-      <div className="score">Score: {score}</div>
+      <div className="name">{name.name}</div>
     </div>
   );
 };

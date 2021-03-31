@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Login = () => {
+const Login = (props) => {
   const [name, setName] = useState({ name: "" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -9,9 +9,10 @@ const Login = () => {
     setName({ name: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
     setSubmitted(true);
+    props.handleName(name);
     console.log("HANDLE CLICK", name);
   };
 
@@ -40,7 +41,7 @@ const Login = () => {
               This is a memory game
             </small>
           </div>
-          <button onSubmit={handleSubmit} className="btn btn-primary">
+          <button onClick={handleClick} className="btn btn-primary">
             Submit
           </button>
         </form>

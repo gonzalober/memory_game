@@ -6,6 +6,7 @@ import initialCards from "./cards";
 import "./App.css";
 
 function App() {
+  const [name, setName] = useState("");
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]); //tracks the cards' id
   const [dimension, setDimension] = useState(400);
@@ -62,7 +63,7 @@ function App() {
   const preloadImages = () => {
     //pre-caching images
     cards.map((card) => {
-      console.log(card.country);
+      //console.log(card.country);
       const src = `assets/img/${card.country}.png`;
       //console.log(src);
       new Image().src = src;
@@ -85,17 +86,22 @@ function App() {
 
   return (
     <div className="App">
-      <Login />
-      <h2>Can you rememeber where the flags are?</h2>
-      <Navbar />
-      <Board
-        dimension={dimension}
-        cards={cards}
-        flipped={flipped}
-        handleClick={handleClick}
-        disabled={disabled}
-        solved={solved}
-      />
+      {name === "" ? (
+        <Login handleName={setName} />
+      ) : (
+        <>
+          <h2>Can you rememeber where the flags are?</h2>
+          <Navbar name={name} />
+          <Board
+            dimension={dimension}
+            cards={cards}
+            flipped={flipped}
+            handleClick={handleClick}
+            disabled={disabled}
+            solved={solved}
+          />
+        </>
+      )}
     </div>
   );
 }

@@ -63,7 +63,7 @@ function App() {
 
   const preloadImages = () => {
     //pre-caching images
-    cards.map((card) => {
+    cards.forEach((card) => {
       //console.log(card.country);
       const src = `assets/img/${card.country}.png`;
       //console.log(src);

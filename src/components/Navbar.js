@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../userContext";
 
 const Navbar = () => {
-  const { name, setName } = useContext(UserContext);
+  const { name } = useContext(UserContext);
   return (
     <div className="navbar">
       <div className="game-title">Memory Game</div>

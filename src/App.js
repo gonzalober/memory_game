@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Login from "./components/login";
 import Board from "./components/board";
 import Navbar from "./components/Navbar";
+import EndGame from "./components/endGame.js";
+import Game from "./components/Game.js";
 import { UserContext } from "./userContext.js";
 import initialCards from "./cards";
 import "./App.css";
@@ -13,6 +15,7 @@ function App() {
   const [dimension, setDimension] = useState(400);
   const [disabled, setDisabled] = useState(false);
   const [solved, setSolved] = useState([]); //tracks the cards' id
+  const [showEndGame, setShowEndGame] = useState(false);
 
   useEffect(() => {
     resizeBoard();
@@ -46,21 +49,26 @@ function App() {
     setFlipped([...flipped, id]);
     if (flipped.length === 0) {
       setFlipped([id]);
-      console.log("setFL:IPEDDDD", setFlipped([id]));
+      console.log("setFLIPEDDDD", setFlipped([id]));
       setDisabled(false);
     } else {
-      console.log("ELSEEEES");
       if (sameCardClicked(id)) return setFlipped([flipped[0], id]);
       if (isMatch(id)) {
         setSolved([...solved, flipped[0], id]);
         resetCards();
-        //setDisabled(false);
       } else {
         setTimeout(resetCards, 500);
       }
     }
   };
 
+  const isMatch = (id) => {
+    const clickedCard = cards.find((card) => card.id === id);
+    const flippedCard = cards.find((card) => flipped[0] === card.id);
+    console.log("FLIPPED CARD", flippedCard);
+    console.log("CLICKEDDS CARD", clickedCard);
+    return flippedCard.country === clickedCard.country;
+  };
   const preloadImages = () => {
     //pre-caching images
     cards.forEach((card) => {
@@ -77,14 +85,13 @@ function App() {
 
   const sameCardClicked = (id) => flipped.includes(id);
 
-  const isMatch = (id) => {
-    const clickedCard = cards.find((card) => card.id === id);
-    const flippedCard = cards.find((card) => flipped[0] === card.id);
-    console.log("FLIPPED CARD", flippedCard);
-    console.log("CLICKEDDS CARD", clickedCard);
-    return flippedCard.country === clickedCard.country;
+  const handleEndGame = (boolean) => {
+    if (boolean) {
+      setShowEndGame({ showEndGame: boolean });
+    } else {
+      setShowEndGame({ showEndGame: boolean });
+    }
   };
-
   return (
     <div className="App">
       {name === "" ? (
@@ -105,6 +112,8 @@ function App() {
           </UserContext.Provider>
         </>
       )}
+      {showEndGame ? <EndGame newGame={handleEndGame} /> : null}
+      <Game endGame={handleEndGame} />
     </div>
   );
 }

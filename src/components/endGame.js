@@ -10,8 +10,8 @@ const messages = [
   { title: "Way to go!", message: "That was lightening fast, Try again?" },
 ];
 
-const EndGame = () => {
-  handleClick = () => {
+const EndGame = (props) => {
+  const handleClick = () => {
     props.newGame(false);
   };
   messages.sort(() => Math.random() - 0.5);

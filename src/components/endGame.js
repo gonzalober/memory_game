@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const messages = [
   { title: "Well Done", message: "How about another go?" },
@@ -10,12 +10,7 @@ const messages = [
 ];
 
 const EndGame = (props) => {
-  const [name, setName] = useState();
-  const [showEndGame, setShowEndGame] = useState(false);
   const handleClick = () => {
-    setName("");
-
-    console.log(props.newGame(false));
     props.newGame(false);
   };
 

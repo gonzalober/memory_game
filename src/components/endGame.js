@@ -10,11 +10,12 @@ const messages = [
 ];
 
 const EndGame = (props) => {
-  const [name, setName] = useState({ name: "" });
+  const [name, setName] = useState();
   const [showEndGame, setShowEndGame] = useState(false);
   const handleClick = () => {
-    //e.preventDefault();
-    console.log(props.newGame());
+    setName("");
+
+    console.log(props.newGame(false));
     props.newGame(false);
   };
 

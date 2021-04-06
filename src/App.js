@@ -11,10 +11,10 @@ import "./App.css";
 function App() {
   const [name, setName] = useState("");
   const [cards, setCards] = useState([]);
-  const [flipped, setFlipped] = useState([]); //tracks the cards' id
+  const [flipped, setFlipped] = useState([]);
   const [dimension, setDimension] = useState(400);
   const [disabled, setDisabled] = useState(false);
-  const [solved, setSolved] = useState([]); //tracks the cards' id
+  const [solved, setSolved] = useState([]);
   const [showEndGame, setShowEndGame] = useState(false);
 
   useEffect(() => {
@@ -39,13 +39,11 @@ function App() {
     setFlipped([...flipped, id]);
     if (flipped.length === 0) {
       setFlipped([id]);
-      //console.log("setFLIPEDDDD", setFlipped([id]));
       setDisabled(false);
     } else {
       if (sameCardClicked(id)) return setFlipped([flipped[0], id]);
       if (isMatch(id)) {
         setSolved([...solved, flipped[0], id]);
-        console.log("ARRAY==>>", [...solved, flipped[0], id]);
         resetCards();
         if ([...solved, flipped[0], id].length === initialCards().length) {
           console.log("YOU HAVE FINISHED!!!!");
@@ -60,16 +58,12 @@ function App() {
   const isMatch = (id) => {
     const clickedCard = cards.find((card) => card.id === id);
     const flippedCard = cards.find((card) => flipped[0] === card.id);
-    console.log("CLICKEDDS CARD", clickedCard);
-    console.log("FLIPPED CARD", flippedCard);
     return flippedCard.country === clickedCard.country;
   };
   const preloadImages = () => {
     //pre-caching images
     cards.forEach((card) => {
-      //console.log(card.country);
       const src = `assets/img/${card.country}.png`;
-      //console.log(src);
       new Image().src = src;
     });
   };

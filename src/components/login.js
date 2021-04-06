@@ -13,18 +13,20 @@ const Login = (props) => {
     e.preventDefault();
     setSubmitted(true);
     props.handleName(name);
-    console.log("HANDLE CLICK", name);
   };
 
   useEffect(() => {
     setName(name);
-    console.log("useeffect", name);
+    //console.log("useeffect", name);
   }, [name]);
 
   return (
     <div className="wrapper">
       <div className="login">
         <form>
+          <big className="form-text text-muted">
+            <p>Memory Game - Flags of the World</p>
+          </big>
           <div className="form-group">
             <label>Name</label>
             <input
@@ -34,15 +36,11 @@ const Login = (props) => {
               value={name.name}
             />
             {submitted && !name.name && (
-              <span id="name-error">Please enter a first name</span>
+              <span id="name-error">Please your name</span>
             )}
-
-            <small className="form-text text-muted">
-              This is a memory game
-            </small>
           </div>
           <button onClick={handleClick} className="btn btn-primary">
-            Submit
+            <p>Submit</p>
           </button>
         </form>
       </div>

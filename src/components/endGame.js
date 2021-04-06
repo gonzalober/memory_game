@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 const messages = [
   { title: "Well Done", message: "How about another go?" },
   { title: "Good Job", message: "I bet you can not do that again?" },
   {
-    title: "Look at you",
+    title: "Nice Job",
     message: "You think you can do it faster next time?",
   },
-  { title: "Way to go!", message: "That was lightening fast, Try again?" },
 ];
 
 const EndGame = (props) => {
+  const [name, setName] = useState({ name: "" });
+  const [showEndGame, setShowEndGame] = useState(false);
   const handleClick = () => {
+    //e.preventDefault();
+    console.log(props.newGame());
     props.newGame(false);
   };
+
   messages.sort(() => Math.random() - 0.5);
   return (
     <div className="end-game">

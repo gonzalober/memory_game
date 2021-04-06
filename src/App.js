@@ -35,27 +35,22 @@ function App() {
     );
   };
 
-  useEffect(() => {
-    const resizeListener = () => {
-      window.addEventListener("resize", resizeBoard());
-    };
-    return () => {
-      window.removeEventListener("resize", resizeListener());
-    };
-  });
-  //const handleClick = (id) => setFlipped([...flipped, id]);
   const handleClick = (id) => {
-    //setDisabled(true);
     setFlipped([...flipped, id]);
     if (flipped.length === 0) {
       setFlipped([id]);
-      console.log("setFLIPEDDDD", setFlipped([id]));
+      //console.log("setFLIPEDDDD", setFlipped([id]));
       setDisabled(false);
     } else {
       if (sameCardClicked(id)) return setFlipped([flipped[0], id]);
       if (isMatch(id)) {
         setSolved([...solved, flipped[0], id]);
+        console.log("ARRAY==>>", [...solved, flipped[0], id]);
         resetCards();
+        if ([...solved, flipped[0], id].length === initialCards().length) {
+          console.log("YOU HAVE FINISHED!!!!");
+          setShowEndGame(true);
+        }
       } else {
         setTimeout(resetCards, 500);
       }
@@ -65,8 +60,8 @@ function App() {
   const isMatch = (id) => {
     const clickedCard = cards.find((card) => card.id === id);
     const flippedCard = cards.find((card) => flipped[0] === card.id);
-    console.log("FLIPPED CARD", flippedCard);
     console.log("CLICKEDDS CARD", clickedCard);
+    console.log("FLIPPED CARD", flippedCard);
     return flippedCard.country === clickedCard.country;
   };
   const preloadImages = () => {
@@ -85,7 +80,7 @@ function App() {
 
   const sameCardClicked = (id) => flipped.includes(id);
 
-  const handleEndGame = (boolean) => {
+  let handleEndGame = (boolean) => {
     if (boolean) {
       setShowEndGame({ showEndGame: boolean });
     } else {
@@ -96,7 +91,7 @@ function App() {
     <div className="App">
       {name === "" ? (
         <Login handleName={setName} />
-      ) : (
+      ) : showEndGame === false ? (
         <>
           <h2>Can you rememeber where the flags are?</h2>
           <UserContext.Provider value={{ name, setName }}>
@@ -111,9 +106,12 @@ function App() {
             />
           </UserContext.Provider>
         </>
+      ) : (
+        <>
+          {showEndGame ? <EndGame newGame={handleEndGame} /> : null}
+          <Game endGame={handleEndGame} />
+        </>
       )}
-      {showEndGame ? <EndGame newGame={handleEndGame} /> : null}
-      <Game endGame={handleEndGame} />
     </div>
   );
 }

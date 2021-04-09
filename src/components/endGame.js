@@ -1,4 +1,5 @@
 import React from "react";
+import "./../App.css";
 
 const messages = [
   { title: "Well Done", message: "How about another go?" },

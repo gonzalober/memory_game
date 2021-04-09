@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
-import { UserContext } from "../userContext";
+import React from "react";
+import "./../App.css";
 
-const Navbar = () => {
-  const { name } = useContext(UserContext);
+const Navbar = ({ name }) => {
   return (
     <div className="navbar">
       <div className="game-title">
         <h3>Memory Game - Flags of the World!</h3>
       </div>
-      <div align="center" className="name">
+      <div>
         <h3>{name.name}</h3>
       </div>
     </div>

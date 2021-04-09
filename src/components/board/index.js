@@ -1,24 +1,15 @@
 import React from "react";
 import Card from "../card";
-import "./style.css";
 
-const Board = ({
-  disabled,
-  dimension,
-  cards,
-  flipped,
-  solved,
-  handleClick,
-}) => {
+const Board = ({ disabled, cards, flipped, solved, handleClick }) => {
   return (
     <div className="board">
       {cards.map((card) => (
         <Card
+          className="image image-blank"
           key={card.id}
           id={card.id}
           type={card.country}
-          width={dimension / 4.5}
-          height={dimension / 4.5}
           flipped={flipped.includes(card.id)}
           solved={disabled || solved.includes(card.id)}
           handleClick={handleClick}

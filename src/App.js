@@ -12,28 +12,17 @@ function App() {
   const [name, setName] = useState("");
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
-  const [dimension, setDimension] = useState(400);
   const [disabled, setDisabled] = useState(false);
   const [solved, setSolved] = useState([]);
   const [showEndGame, setShowEndGame] = useState(false);
 
   useEffect(() => {
-    resizeBoard();
     setCards(initialCards());
   }, []);
 
   useEffect(() => {
     preloadImages();
   });
-
-  const resizeBoard = () => {
-    setDimension(
-      Math.min(
-        document.documentElement.clientWidth,
-        document.documentElement.clientHeight
-      )
-    );
-  };
 
   const handleClick = (id) => {
     setFlipped([...flipped, id]);
@@ -46,11 +35,10 @@ function App() {
         setSolved([...solved, flipped[0], id]);
         resetCards();
         if ([...solved, flipped[0], id].length === initialCards().length) {
-          console.log("YOU HAVE FINISHED!!!!");
           setShowEndGame(true);
         }
       } else {
-        setTimeout(resetCards, 500);
+        setTimeout(resetCards, 300);
       }
     }
   };
@@ -82,16 +70,16 @@ function App() {
     }
   };
   return (
-    <div className="App">
+    <div>
       {name === "" ? (
         <Login handleName={setName} />
       ) : showEndGame === false ? (
         <>
           <h2>Can you rememeber where the flags are?</h2>
           <UserContext.Provider value={{ name, setName }}>
-            <Navbar handleName={name} />
+            <Navbar name={name} />
+
             <Board
-              dimension={dimension}
               cards={cards}
               flipped={flipped}
               handleClick={handleClick}

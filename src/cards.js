@@ -8,6 +8,7 @@ const randCards = (array) => {
   }
   return arrayCopy;
 };
+
 const initialCards = () => {
   let id = 0;
   const cards = ["arg", "us", "spain", "uk", "it"].reduce((acc, country) => {
@@ -18,4 +19,5 @@ const initialCards = () => {
   return randCards(cards);
 };
 
-export default initialCards;
+//export default initialCards;
+module.exports = initialCards;

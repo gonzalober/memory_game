@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cards flags country 1`] = `
+Object {
+  "country": Any<String>,
+  "id": 1,
+}
+`;
+
+exports[`cards flags country 2`] = `
+Object {
+  "country": Any<String>,
+  "id": 3,
+}
+`;
+
+exports[`cards flags country 3`] = `
+Object {
+  "country": Any<String>,
+  "id": 6,
+}
+`;
+
+exports[`cards flags country 4`] = `
+Object {
+  "country": Any<String>,
+  "id": 5,
+}
+`;
+
+exports[`cards flags country 5`] = `
+Object {
+  "country": Any<String>,
+  "id": 7,
+}
+`;
+
+exports[`cards flags country 6`] = `
+Object {
+  "country": Any<String>,
+  "id": 8,
+}
+`;
+
+exports[`cards flags country 7`] = `
+Object {
+  "country": Any<String>,
+  "id": 9,
+}
+`;
+
+exports[`cards flags country 8`] = `
+Object {
+  "country": Any<String>,
+  "id": 4,
+}
+`;
+
+exports[`cards flags country 9`] = `
+Object {
+  "country": Any<String>,
+  "id": 2,
+}
+`;
+
+exports[`cards flags country 10`] = `
+Object {
+  "country": Any<String>,
+  "id": 0,
+}
+`;
+
+exports[`cards flags id 1`] = `
+Object {
+  "country": "uk",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 2`] = `
+Object {
+  "country": "it",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 3`] = `
+Object {
+  "country": "us",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 4`] = `
+Object {
+  "country": "spain",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 5`] = `
+Object {
+  "country": "it",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 6`] = `
+Object {
+  "country": "us",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 7`] = `
+Object {
+  "country": "arg",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 8`] = `
+Object {
+  "country": "uk",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 9`] = `
+Object {
+  "country": "arg",
+  "id": Any<Number>,
+}
+`;
+
+exports[`cards flags id 10`] = `
+Object {
+  "country": "spain",
+  "id": Any<Number>,
+}
+`;

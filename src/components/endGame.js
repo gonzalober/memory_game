@@ -1,4 +1,5 @@
 import React from "react";
+import initialCards from "../cards";
 import "./../App.css";
 
 const messages = [
@@ -10,9 +11,11 @@ const messages = [
   },
 ];
 
-const EndGame = (props) => {
+const EndGame = ({ newGame, solved, cards }) => {
   const handleClick = () => {
-    props.newGame(false);
+    newGame(false);
+    solved([]);
+    cards(initialCards());
   };
 
   messages.sort(() => Math.random() - 0.5);

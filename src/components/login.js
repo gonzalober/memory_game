@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const Login = ({ handleName }) => {
   const [name, setName] = useState({ name: "" });
-  //const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     setName({ name: e.target.value });
@@ -24,7 +23,7 @@ const Login = ({ handleName }) => {
         <form onSubmit={handleSubmit}>
           <h1>Memory Game - Flags of the World</h1>
           <div className="form-group">
-            <label>Name</label>
+            <label>Name </label>
             <input
               required={true}
               type="name"
@@ -33,7 +32,7 @@ const Login = ({ handleName }) => {
               value={name.name}
             />
           </div>
-          <button class="button">
+          <button className="btn btn-primary">
             <p>Submit</p>
           </button>
         </form>

@@ -1,12 +1,11 @@
 import React from "react";
-import Card from "../card";
+import Card from "../card/index";
 
 const Board = ({ disabled, cards, flipped, solved, handleClick }) => {
   return (
     <div className="board">
       {cards.map((card) => (
         <Card
-          className="image image-blank"
           key={card.id}
           id={card.id}
           type={card.country}

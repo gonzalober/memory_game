@@ -8,7 +8,7 @@ const Navbar = ({ name }) => {
         <h3>Memory Game - Flags of the World!</h3>
       </div>
       <div>
-        <h3>{name.name}</h3>
+        <h2>{name.name}</h2>
       </div>
     </div>
   );

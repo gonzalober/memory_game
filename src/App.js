@@ -62,13 +62,6 @@ function App() {
 
   const sameCardClicked = (id) => flipped.includes(id);
 
-  let handleEndGame = (boolean) => {
-    if (boolean) {
-      setShowEndGame({ showEndGame: boolean });
-    } else {
-      setShowEndGame({ showEndGame: boolean });
-    }
-  };
   return (
     <div>
       {name === "" ? (
@@ -78,7 +71,6 @@ function App() {
           <h2>Can you rememeber where the flags are?</h2>
           <UserContext.Provider value={{ name, setName }}>
             <Navbar name={name} />
-
             <Board
               cards={cards}
               flipped={flipped}
@@ -90,8 +82,14 @@ function App() {
         </>
       ) : (
         <>
-          {showEndGame ? <EndGame newGame={handleEndGame} /> : null}
-          <Game endGame={handleEndGame} />
+          {showEndGame ? (
+            <EndGame
+              newGame={setShowEndGame}
+              cards={setCards}
+              solved={setSolved}
+            />
+          ) : null}
+          <Game endGame={setShowEndGame} />
         </>
       )}
     </div>

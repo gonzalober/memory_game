@@ -1,8 +1,7 @@
 import React from "react";
-import "./../App.css";
 
-const Game = (props) => {
-  return <div>{props.endGame}</div>;
+const Game = ({ endGame }) => {
+  return <div className="game">{endGame.endGame}</div>;
 };
 
 export default Game;

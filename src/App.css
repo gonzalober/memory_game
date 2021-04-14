@@ -5,100 +5,35 @@
   background: rgba(0, 0, 0, 0.8);
   height: 100vh;
   width: 100vw;
-  padding-top: 10px;
-  cursor: pointer;
 }
-
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.board {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 450px;
-  width: 570px;
-  box-shadow: 4px 4px 10px gray;
-  padding: 10px;
-}
-
 .login {
+  align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 60vh;
-  width: 40vw;
+  width: 60vw;
   text-align: center;
   box-shadow: 6px 6px 6px gray;
   background: white;
-  padding: 10px;
 }
-.button {
+.btn-primary {
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
-  width: auto;
-  text-align: center;
-  position: absolute;
-  box-shadow: 6px 6px 6px rgb(113, 138, 98);
-  background: white;
+  background-color: rgb(184, 187, 170);
+  color: black;
+  font-weight: bolder;
   padding: 10px;
+  margin: 20px;
   border-radius: 10%;
-}
-
-.navbar {
-  display: flex;
-  box-shadow: 4px 4px 6px gray;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.game {
-  display: flex;
-  height: 85vh;
-  justify-content: center;
-  align-items: center;
-}
-
-.images {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 450px;
-  width: 570px;
-  box-shadow: 4px 4px 10px gray;
-}
-
-.image {
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  height: 120px;
-  width: 120px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px black;
-  padding: 10px;
-  margin: 10px;
-}
-
-.image-blank {
-  background: url("./assets/img/memoryIcon.png") !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  height: 120px;
-  width: 120px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px black;
-  padding: 10px;
-  margin: 10px;
-}
-
-.end-game {
   position: absolute;
+  top: 60%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.end-game {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,33 +46,57 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: center;
   align-items: center;
   height: 60vh;
-  width: 40vw;
+  width: 50vw;
   background: white;
   box-shadow: 12px 12px 10px gray;
 }
-
-img {
-  width: 150px;
-  box-shadow: 2px 2px 3px black;
+.from-group {
+  justify-content: center;
+}
+.navbar {
+  display: flex;
+  box-shadow: 4px 4px 6px gray;
   justify-content: space-between;
 }
 
-.board .flip-container {
-  flex: 0 0 25%;
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-shadow: 4px 4px 10px gray;
+  margin: auto;
+  width: 70vw;
+  height: 80vh;
 }
 
-@media only screen and (max-width: 600px) {
-  .image {
-    height: 100px;
-    width: 110px;
-    margin: 5px;
-  }
-  .message {
-    width: 400px;
-  }
-  .login {
-    width: 200px;
-  }
+.card {
+  display: flex;
+  height: 120px;
+  width: 120px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  margin: auto;
+}
+
+.image-blank {
+  background: url("./assets/img/memoryIcon.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  height: auto;
+  width: auto;
+  border-radius: 10%;
+  box-shadow: 2px 2px 3px black;
+  padding: 10px;
+  margin: 10px;
 }

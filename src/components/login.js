@@ -32,7 +32,7 @@ const Login = ({ handleName }) => {
               value={name.name}
             />
           </div>
-          <button className="btn btn-primary">
+          <button className="btn-primary">
             <p>Submit</p>
           </button>
         </form>

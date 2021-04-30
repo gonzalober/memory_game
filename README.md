@@ -7,5 +7,5 @@ Flags Memory Game is a web application replicating the popular card game.
 [Play Flags Memory Game Here!](https://sleepy-fermi-5e00be.netlify.app/)
 
 - Front-end on React Hooks.
-- Integration test framework cypress
+- e2e testing framework cypress
 - Unit test Jest

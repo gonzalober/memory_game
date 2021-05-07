@@ -6,6 +6,10 @@ import EndGame from "./components/endGame.js";
 import Game from "./components/Game.js";
 import { UserContext } from "./userContext.js";
 import initialCards from "./cards";
+import useSound from "use-sound";
+import cardClicked from "./assets/sounds/cardClicked.wav";
+import cardMatched from "./assets/sounds/cardMatched.wav";
+import endGameSound from "./assets/sounds/endGameSound.wav";
 import "./App.css";
 
 function App() {
@@ -15,6 +19,9 @@ function App() {
   const [disabled, setDisabled] = useState(false);
   const [solved, setSolved] = useState([]);
   const [showEndGame, setShowEndGame] = useState(false);
+  const [clickOnCard] = useSound(cardClicked);
+  const [clickCardMtached] = useSound(cardMatched);
+  const [playEndGameSound] = useSound(endGameSound);
 
   useEffect(() => {
     setCards(initialCards());
@@ -25,6 +32,7 @@ function App() {
   });
 
   const handleClick = (id) => {
+    clickOnCard();
     setFlipped([...flipped, id]);
     if (flipped.length === 0) {
       setFlipped([id]);
@@ -32,9 +40,11 @@ function App() {
     } else {
       if (sameCardClicked(id)) return setFlipped([flipped[0], id]);
       if (isMatch(id)) {
+        clickCardMtached();
         setSolved([...solved, flipped[0], id]);
         resetCards();
         if ([...solved, flipped[0], id].length === initialCards().length) {
+          playEndGameSound();
           setShowEndGame(true);
         }
       } else {
@@ -68,7 +78,7 @@ function App() {
         <Login handleName={setName} />
       ) : showEndGame === false ? (
         <>
-          <h2>Can you rememeber where the flags are?</h2>
+          <h1>Can you rememeber where the flags are?</h1>
           <UserContext.Provider value={{ name, setName }}>
             <Navbar name={name} />
             <Board

@@ -18,25 +18,21 @@ const Login = ({ handleName }) => {
   }, [name]);
 
   return (
-    <div className="wrapper">
-      <div className="login">
-        <form onSubmit={handleSubmit}>
-          <h1>Memory Game - Flags of the World</h1>
-          <div className="form-group">
-            <label>Name </label>
-            <input
-              required={true}
-              type="name"
-              className="form-control"
-              onChange={handleChange}
-              value={name.name}
-            />
-          </div>
-          <button className="btn-primary">
-            <p>Submit</p>
-          </button>
-        </form>
-      </div>
+    <div className="end-game">
+      <form onSubmit={handleSubmit} className="login">
+        <h1>Memory Game - Flags of the World</h1>
+        <div className="form-group">
+          <label>Name </label>
+          <input
+            required={true}
+            type="name"
+            className="form-control"
+            onChange={handleChange}
+            value={name.name}
+          />
+        </div>
+        <button className="btn btn-primary">PLAY!!!</button>
+      </form>
     </div>
   );
 };

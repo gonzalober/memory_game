@@ -1,45 +1,65 @@
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.8);
-  height: 100vh;
-  width: 100vw;
+@import url("https://fonts.googleapis.com/css?family=Lato:100&display=swap");
+h1 {
+  text-align: center;
 }
 .login {
-  align-items: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 60vh;
   width: 60vw;
+  margin: auto;
   text-align: center;
   box-shadow: 6px 6px 6px gray;
-  background: white;
+  background: whitesmoke;
+  border-radius: 1%;
 }
-.btn-primary {
+.login button,
+.btn-primary:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(184, 187, 170);
-  color: black;
+  background-color: rgb(58, 112, 219);
+  cursor: progress;
+  color: white;
   font-weight: bolder;
   padding: 10px;
   margin: 20px;
   border-radius: 10%;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transition: 1s ease-in-out;
 }
+.btn-primary:hover svg {
+  stroke-dashoffset: -480;
+}
+.btn-primary span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
 .end-game {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(44, 44, 44, 0.8);
+}
+.end-game label {
+  color: rgb(12, 11, 11);
+  font-size: 25px;
+  font-weight: 100;
 }
 
 .message {
@@ -60,16 +80,23 @@
   display: flex;
   box-shadow: 4px 4px 6px gray;
   justify-content: space-between;
+  background: rgb(206, 204, 204);
 }
 
 .board {
-  display: flex;
+  position: center;
   flex-direction: row;
+  align-items: center;
+  display: flex;
   flex-wrap: wrap;
   box-shadow: 4px 4px 10px gray;
   margin: auto;
+  margin-top: 15px;
+  padding: 20px;
   width: 70vw;
   height: 80vh;
+  background: rgb(206, 204, 204);
+  border-radius: 1%;
 }
 
 .card {
@@ -89,10 +116,10 @@
 }
 
 .image-blank {
-  background: url("./assets/img/memoryIcon.png") !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
+  background: url("./assets/img/memoryIcon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   height: auto;
   width: auto;
   border-radius: 10%;

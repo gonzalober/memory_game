@@ -25,7 +25,7 @@ const EndGame = ({ newGame, solved, cards }) => {
         <h2>{messages[0].title}</h2>
         <p>{messages[0].message}</p>
         <button className="btn btn-primary" onClick={handleClick}>
-          Go Again
+          Go Again!
         </button>
       </div>
     </div>

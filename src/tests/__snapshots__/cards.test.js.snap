@@ -3,7 +3,7 @@
 exports[`cards flags country 1`] = `
 Object {
   "country": Any<String>,
-  "id": 4,
+  "id": 9,
 }
 `;
 
@@ -17,56 +17,56 @@ Object {
 exports[`cards flags country 3`] = `
 Object {
   "country": Any<String>,
-  "id": 5,
+  "id": 7,
 }
 `;
 
 exports[`cards flags country 4`] = `
 Object {
   "country": Any<String>,
-  "id": 2,
+  "id": 1,
 }
 `;
 
 exports[`cards flags country 5`] = `
 Object {
   "country": Any<String>,
-  "id": 0,
+  "id": 5,
 }
 `;
 
 exports[`cards flags country 6`] = `
 Object {
   "country": Any<String>,
-  "id": 9,
+  "id": 2,
 }
 `;
 
 exports[`cards flags country 7`] = `
 Object {
   "country": Any<String>,
-  "id": 8,
+  "id": 4,
 }
 `;
 
 exports[`cards flags country 8`] = `
 Object {
   "country": Any<String>,
-  "id": 7,
+  "id": 8,
 }
 `;
 
 exports[`cards flags country 9`] = `
 Object {
   "country": Any<String>,
-  "id": 1,
+  "id": 3,
 }
 `;
 
 exports[`cards flags country 10`] = `
 Object {
   "country": Any<String>,
-  "id": 3,
+  "id": 0,
 }
 `;
 
@@ -79,63 +79,63 @@ Object {
 
 exports[`cards flags id 2`] = `
 Object {
-  "country": "arg",
+  "country": "spain",
   "id": Any<Number>,
 }
 `;
 
 exports[`cards flags id 3`] = `
 Object {
-  "country": "it",
+  "country": "arg",
   "id": Any<Number>,
 }
 `;
 
 exports[`cards flags id 4`] = `
 Object {
-  "country": "uk",
+  "country": "us",
   "id": Any<Number>,
 }
 `;
 
 exports[`cards flags id 5`] = `
 Object {
-  "country": "us",
+  "country": "it",
   "id": Any<Number>,
 }
 `;
 
 exports[`cards flags id 6`] = `
 Object {
-  "country": "it",
+  "country": "spain",
   "id": Any<Number>,
 }
 `;
 
 exports[`cards flags id 7`] = `
 Object {
-  "country": "spain",
+  "country": "arg",
   "id": Any<Number>,
 }
 `;
 
 exports[`cards flags id 8`] = `
 Object {
-  "country": "arg",
+  "country": "us",
   "id": Any<Number>,
 }
 `;
 
 exports[`cards flags id 9`] = `
 Object {
-  "country": "spain",
+  "country": "uk",
   "id": Any<Number>,
 }
 `;
 
 exports[`cards flags id 10`] = `
 Object {
-  "country": "us",
+  "country": "it",
   "id": Any<Number>,
 }
 `;
